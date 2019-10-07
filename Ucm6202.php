@@ -47,8 +47,9 @@ class Ucm6202 {
         $this->pass = $pass;
 
         $this->curl = curl_init();
-        curl_setopt($this->curl, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($this->curl, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($this->curl, CURLOPT_SSL_VERIFYHOST, FALSE);
+        curl_setopt($this->curl, CURLOPT_HTTPAUTH, CURLATH_DIGEST);
         curl_setopt($this->curl, CURLOPT_FOLLOWLOCATION, 1);
         curl_setopt($this->curl, CURLOPT_USERPWD, $this->user . ":" . $this->pass);
         curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, TRUE);
